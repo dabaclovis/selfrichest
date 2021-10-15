@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title> study hard
+        | make your self rich
+    </title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src=" https://use.fontawesome.com/ffb1fe00e0.js"></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('w3/w3.css') }}">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                   <h2 class="w3-card-4">Bussam</h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="/phones" class="nav-link {{ request()->is('phones') ? 'bg-info rounded-lg' : '' }} w3-large"> Phones</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/computer" class="nav-link {{ request()->is('computer') ? 'bg-info rounded-lg' : '' }} w3-large"> Computers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/others" class="nav-link {{ request()->is('others') ? 'bg-info rounded-lg' : '' }} w3-large"> Others</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/articles" class="nav-link {{ request()->is('articles') ? 'bg-info rounded-lg' : '' }} w3-large"></a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link"> <i class="fa fa-phone w3-large" aria-hidden="true">&nbsp; 614-779-2576</i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"> <i class="fa fa-envelope w3-large" aria-hidden="true"></i>&nbsp; bussamclan@gmail.com</a>
+                        </li>
+                    </ul>
+                    <!-- Right Side Of Navbar -->
+                    {{-- <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul> --}}
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4 container">
+            @yield('content')
+        </main>
+
+        <div class="bg-dark">
+            <div class="container p-4">
+                <a href="/about" class="d-inline btn btn-secondary">About</a>
+                <a href="/policy" class="d-inline btn btn-secondary">Policy</a>
+                <a href="" class="d-inline btn btn-secondary">&copy; 2021 All rights reserve.</a>
+                <a href="https://www.selfrichest.com" class="d-inline btn btn-secondary">selfrichest.com</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
